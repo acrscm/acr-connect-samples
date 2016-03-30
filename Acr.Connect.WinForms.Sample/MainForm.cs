@@ -13,6 +13,14 @@ namespace Acr.Connect.WinForms.Sample
         public MainForm()
         {
             InitializeComponent();
+
+            var settings = Settings.Default;
+
+            ClientId.Text = settings.ClientId;
+            ClientSecret.Text = settings.ClientSecret;
+            AuthServiceUrl.Text = settings.AuthenticationServiceUrl;
+            IdpName.Text = settings.IdentityProviderName;
+            RedirectUrl.Text = settings.RedirectUrl;
         }
 
         private void SignInButton_Click(object sender, EventArgs e)

@@ -82,9 +82,8 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AuthServiceUrl.Location = new System.Drawing.Point(114, 12);
             this.AuthServiceUrl.Name = "AuthServiceUrl";
-            this.AuthServiceUrl.Size = new System.Drawing.Size(251, 20);
+            this.AuthServiceUrl.Size = new System.Drawing.Size(381, 20);
             this.AuthServiceUrl.TabIndex = 1;
-            this.AuthServiceUrl.Text = "https://acr-id-test.acr.org/secureauth7/";
             // 
             // ClientId
             // 
@@ -92,14 +91,13 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientId.Location = new System.Drawing.Point(114, 38);
             this.ClientId.Name = "ClientId";
-            this.ClientId.Size = new System.Drawing.Size(251, 20);
+            this.ClientId.Size = new System.Drawing.Size(381, 20);
             this.ClientId.TabIndex = 3;
-            this.ClientId.Text = "03b6dd32d0624705b8f2426da9a2fbca";
             // 
             // SignInButton
             // 
             this.SignInButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SignInButton.Location = new System.Drawing.Point(451, 84);
+            this.SignInButton.Location = new System.Drawing.Point(581, 84);
             this.SignInButton.Name = "SignInButton";
             this.SignInButton.Size = new System.Drawing.Size(80, 23);
             this.SignInButton.TabIndex = 14;
@@ -110,17 +108,16 @@ namespace Acr.Connect.WinForms.Sample
             // RedirectUrl
             // 
             this.RedirectUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RedirectUrl.Location = new System.Drawing.Point(452, 38);
+            this.RedirectUrl.Location = new System.Drawing.Point(582, 38);
             this.RedirectUrl.Name = "RedirectUrl";
             this.RedirectUrl.Size = new System.Drawing.Size(251, 20);
             this.RedirectUrl.TabIndex = 12;
-            this.RedirectUrl.Text = "https://localhost:44310/signin-secureauth-oidc";
             // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(371, 41);
+            this.label4.Location = new System.Drawing.Point(501, 41);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 11;
@@ -129,7 +126,7 @@ namespace Acr.Connect.WinForms.Sample
             // SignOutButton
             // 
             this.SignOutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SignOutButton.Location = new System.Drawing.Point(537, 84);
+            this.SignOutButton.Location = new System.Drawing.Point(667, 84);
             this.SignOutButton.Name = "SignOutButton";
             this.SignOutButton.Size = new System.Drawing.Size(80, 23);
             this.SignOutButton.TabIndex = 20;
@@ -152,23 +149,22 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.IdToken.Location = new System.Drawing.Point(120, 165);
             this.IdToken.Name = "IdToken";
-            this.IdToken.Size = new System.Drawing.Size(583, 20);
+            this.IdToken.Size = new System.Drawing.Size(713, 20);
             this.IdToken.TabIndex = 18;
             // 
             // IdpName
             // 
             this.IdpName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.IdpName.Location = new System.Drawing.Point(452, 12);
+            this.IdpName.Location = new System.Drawing.Point(582, 12);
             this.IdpName.Name = "IdpName";
             this.IdpName.Size = new System.Drawing.Size(251, 20);
             this.IdpName.TabIndex = 8;
-            this.IdpName.Text = "https://acr-id-test.acr.org/SecureAuth7";
             // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(387, 17);
+            this.label6.Location = new System.Drawing.Point(517, 17);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 13);
             this.label6.TabIndex = 7;
@@ -180,7 +176,7 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DecodedIdToken.Location = new System.Drawing.Point(120, 191);
             this.DecodedIdToken.Name = "DecodedIdToken";
-            this.DecodedIdToken.Size = new System.Drawing.Size(583, 20);
+            this.DecodedIdToken.Size = new System.Drawing.Size(713, 20);
             this.DecodedIdToken.TabIndex = 19;
             // 
             // label7
@@ -195,8 +191,6 @@ namespace Acr.Connect.WinForms.Sample
             // SignInUser
             // 
             this.SignInUser.AutoSize = true;
-            this.SignInUser.Checked = true;
-            this.SignInUser.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SignInUser.Location = new System.Drawing.Point(41, 90);
             this.SignInUser.Name = "SignInUser";
             this.SignInUser.Size = new System.Drawing.Size(145, 17);
@@ -210,9 +204,8 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientSecret.Location = new System.Drawing.Point(114, 64);
             this.ClientSecret.Name = "ClientSecret";
-            this.ClientSecret.Size = new System.Drawing.Size(251, 20);
+            this.ClientSecret.Size = new System.Drawing.Size(381, 20);
             this.ClientSecret.TabIndex = 5;
-            this.ClientSecret.Text = "711acbb5fd554be9ae62aa70d4c05818";
             this.ClientSecret.UseSystemPasswordChar = true;
             // 
             // label8
@@ -242,7 +235,7 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AuthCode.Location = new System.Drawing.Point(120, 113);
             this.AuthCode.Name = "AuthCode";
-            this.AuthCode.Size = new System.Drawing.Size(583, 20);
+            this.AuthCode.Size = new System.Drawing.Size(713, 20);
             this.AuthCode.TabIndex = 15;
             // 
             // label9
@@ -260,7 +253,7 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AccessToken.Location = new System.Drawing.Point(120, 139);
             this.AccessToken.Name = "AccessToken";
-            this.AccessToken.Size = new System.Drawing.Size(583, 20);
+            this.AccessToken.Size = new System.Drawing.Size(713, 20);
             this.AccessToken.TabIndex = 17;
             // 
             // label10
@@ -275,7 +268,7 @@ namespace Acr.Connect.WinForms.Sample
             // GetTokensButton
             // 
             this.GetTokensButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.GetTokensButton.Location = new System.Drawing.Point(623, 84);
+            this.GetTokensButton.Location = new System.Drawing.Point(753, 84);
             this.GetTokensButton.Name = "GetTokensButton";
             this.GetTokensButton.Size = new System.Drawing.Size(80, 23);
             this.GetTokensButton.TabIndex = 16;
@@ -297,7 +290,7 @@ namespace Acr.Connect.WinForms.Sample
             this._acrConnectOidcLogOnControl.RequestTokens = true;
             this._acrConnectOidcLogOnControl.Scope = "openid email";
             this._acrConnectOidcLogOnControl.SignInUser = false;
-            this._acrConnectOidcLogOnControl.Size = new System.Drawing.Size(691, 378);
+            this._acrConnectOidcLogOnControl.Size = new System.Drawing.Size(821, 369);
             this._acrConnectOidcLogOnControl.TabIndex = 21;
             this._acrConnectOidcLogOnControl.AuthCodeReceived += new System.EventHandler<Acr.Connect.Security.Gui.AuthCodeReceivedEventArgs>(this.AcrConnectOidcLogonControl_AuthCodeReceived);
             this._acrConnectOidcLogOnControl.Authenticated += new System.EventHandler<Acr.Connect.Security.Gui.AuthenticatedEventArgs>(this.AcrConnectOidcLogonControl_Authenticated);
@@ -309,7 +302,7 @@ namespace Acr.Connect.WinForms.Sample
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RefreshToken.Location = new System.Drawing.Point(120, 217);
             this.RefreshToken.Name = "RefreshToken";
-            this.RefreshToken.Size = new System.Drawing.Size(583, 20);
+            this.RefreshToken.Size = new System.Drawing.Size(713, 20);
             this.RefreshToken.TabIndex = 26;
             // 
             // label3
@@ -325,7 +318,7 @@ namespace Acr.Connect.WinForms.Sample
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 633);
+            this.ClientSize = new System.Drawing.Size(845, 624);
             this.Controls.Add(this.RefreshToken);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.GetTokensButton);
