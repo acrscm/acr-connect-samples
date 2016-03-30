@@ -17,14 +17,13 @@ namespace Acr.Connect.WinForms.Sample
 
         private void SignInButton_Click(object sender, EventArgs e)
         {
-            JwtToken.Text = string.Empty;
+            DecodedIdToken.Text = string.Empty;
             IdToken.Text = string.Empty;
 
-            _acrConnectOidcLogOnControl.AuthenticationServiceBaseUrl = new Uri(RealmUrl.Text);
+            _acrConnectOidcLogOnControl.AuthenticationServiceBaseUrl = new Uri(AuthServiceUrl.Text);
             _acrConnectOidcLogOnControl.ClientId = ClientId.Text;
             _acrConnectOidcLogOnControl.ClientSecret = ClientSecret.Text.ToSecureString();
             _acrConnectOidcLogOnControl.RedirectUrl = new Uri(RedirectUrl.Text);
-            _acrConnectOidcLogOnControl.Scope = Scope.Text;
             _acrConnectOidcLogOnControl.IdentityProviderName = IdpName.Text;
             _acrConnectOidcLogOnControl.RequestTokens = RequestTokens.Checked;
             _acrConnectOidcLogOnControl.SignInUser = SignInUser.Checked;
@@ -37,7 +36,7 @@ namespace Acr.Connect.WinForms.Sample
         {
             AuthCode.Text = string.Empty;
             AccessToken.Text = string.Empty;
-            JwtToken.Text = string.Empty;
+            DecodedIdToken.Text = string.Empty;
             IdToken.Text = string.Empty;
 
             _acrConnectOidcLogOnControl.SignOut();
@@ -45,13 +44,14 @@ namespace Acr.Connect.WinForms.Sample
 
         private void AcrConnectOidcLogonControl_Authenticated(object sender, AuthenticatedEventArgs e)
         {
-            JwtToken.Text = e.JwtToken.ToString();
+            DecodedIdToken.Text = e.JwtToken.ToString();
         }
 
         private void AcrConnectOidcLogonControl_TokenReceived(object sender, TokenReceivedEventArgs e)
         {
             IdToken.Text = e.OidcMessage.IdToken;
             AccessToken.Text = e.OidcMessage.AccessToken;
+            RefreshToken.Text = e.OidcMessage.Token;
         }
 
         private void AcrConnectOidcLogonControl_AuthCodeReceived(object sender, AuthCodeReceivedEventArgs e)
