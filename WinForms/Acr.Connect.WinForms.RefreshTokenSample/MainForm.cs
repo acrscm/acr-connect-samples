@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
+using Acr.Connect.Samples.WinForms.RefreshToken.Properties;
 using Acr.Connect.Security.Common;
 using Acr.Connect.Security.Gui;
-using Acr.Connect.WinForms.RefreshTokenSample.Properties;
 
-namespace Acr.Connect.WinForms.RefreshTokenSample
+namespace Acr.Connect.Samples.WinForms.RefreshToken
 {
     public partial class MainForm : Form
     {

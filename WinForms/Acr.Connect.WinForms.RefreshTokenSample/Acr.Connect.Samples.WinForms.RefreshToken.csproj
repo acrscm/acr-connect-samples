@@ -7,8 +7,8 @@
     <ProjectGuid>{08AF512C-7F32-498C-B131-9168F1DEDA6F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Acr.Connect.WinForms.RefreshTokenSample</RootNamespace>
-    <AssemblyName>Acr.Connect.WinForms.RefreshTokenSample</AssemblyName>
+    <RootNamespace>Acr.Connect.Samples.WinForms.RefreshToken</RootNamespace>
+    <AssemblyName>Acr.Connect.Samples.WinForms.RefreshToken</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -89,6 +89,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

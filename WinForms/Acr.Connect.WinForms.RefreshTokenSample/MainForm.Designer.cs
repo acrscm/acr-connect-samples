@@ -1,6 +1,6 @@
 ﻿using Acr.Connect.Security.Gui;
 
-namespace Acr.Connect.WinForms.RefreshTokenSample
+namespace Acr.Connect.Samples.WinForms.RefreshToken
 {
         partial class MainForm
     {
