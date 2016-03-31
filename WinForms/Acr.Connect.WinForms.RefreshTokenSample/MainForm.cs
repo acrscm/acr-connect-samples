@@ -18,6 +18,7 @@ namespace Acr.Connect.WinForms.RefreshTokenSample
             ClientSecret.Text = settings.ClientSecret;
             AuthServiceUrl.Text = settings.AuthenticationServiceUrl;
             RedirectUrl.Text = settings.RedirectUrl;
+            Scope.Text = settings.Scope;
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace Acr.Connect.WinForms.RefreshTokenSample
             _acrConnectOidcLogOnControl.ClientSecret = ClientSecret.Text.ToSecureString();
             _acrConnectOidcLogOnControl.RedirectUrl = new Uri(RedirectUrl.Text);
             _acrConnectOidcLogOnControl.RequestTokens = true;
+            _acrConnectOidcLogOnControl.Scope = Scope.Text;
 
             _acrConnectOidcLogOnControl.SignIn();
         }
@@ -54,6 +56,11 @@ namespace Acr.Connect.WinForms.RefreshTokenSample
         {
             AuthCode.Text = string.Empty;
             RefreshToken.Text = string.Empty;
+        }
+
+        private void CopyToClipboardButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(RefreshToken.Text, TextDataFormat.Text);
         }
     }
 }

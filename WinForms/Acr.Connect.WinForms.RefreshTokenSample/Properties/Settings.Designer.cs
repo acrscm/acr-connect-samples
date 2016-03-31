@@ -25,25 +25,7 @@ namespace Acr.Connect.WinForms.RefreshTokenSample.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("]")]
-        public string ClientId {
-            get {
-                return ((string)(this["ClientId"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AuthenticationServiceUrl {
-            get {
-                return ((string)(this["AuthenticationServiceUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Redirect URL]")]
         public string RedirectUrl {
             get {
                 return ((string)(this["RedirectUrl"]));
@@ -52,10 +34,37 @@ namespace Acr.Connect.WinForms.RefreshTokenSample.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Scope]")]
+        public string Scope {
+            get {
+                return ((string)(this["Scope"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Client ID]")]
+        public string ClientId {
+            get {
+                return ((string)(this["ClientId"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Client Secret]")]
         public string ClientSecret {
             get {
                 return ((string)(this["ClientSecret"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Authentication Service URL]")]
+        public string AuthenticationServiceUrl {
+            get {
+                return ((string)(this["AuthenticationServiceUrl"]));
             }
         }
     }

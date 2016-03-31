@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Acr.Connect.WinForms.Sample.Properties {
+namespace Acr.Connect.Samples.WinForms.AccessToken.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace Acr.Connect.WinForms.Sample.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Client ID Value]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Client ID]")]
         public string ClientId {
             get {
                 return ((string)(this["ClientId"]));
@@ -34,7 +34,7 @@ namespace Acr.Connect.WinForms.Sample.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Client secret value]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("[Client Secret]")]
         public string ClientSecret {
             get {
                 return ((string)(this["ClientSecret"]));
@@ -47,24 +47,6 @@ namespace Acr.Connect.WinForms.Sample.Properties {
         public string AuthenticationServiceUrl {
             get {
                 return ((string)(this["AuthenticationServiceUrl"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Identity Provider Name]")]
-        public string IdentityProviderName {
-            get {
-                return ((string)(this["IdentityProviderName"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Redirect URL]")]
-        public string RedirectUrl {
-            get {
-                return ((string)(this["RedirectUrl"]));
             }
         }
     }
