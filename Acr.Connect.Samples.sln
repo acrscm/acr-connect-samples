@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.WinForms.Sample", "Acr.Connect.WinForms.Sample\Acr.Connect.WinForms.Sample.csproj", "{C4291F07-8238-4AEA-A7B2-F022A34E1E84}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{6AD4483D-59A4-44EF-B840-45547E4A8FA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.WinForms.AccessToken", "WinForms\Acr.Connect.Samples.WinForms.AccessToken\Acr.Connect.Samples.WinForms.AccessToken.csproj", "{5457D44A-9E1A-45EC-ABC4-69E3F7F49997}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C4291F07-8238-4AEA-A7B2-F022A34E1E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4291F07-8238-4AEA-A7B2-F022A34E1E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4291F07-8238-4AEA-A7B2-F022A34E1E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4291F07-8238-4AEA-A7B2-F022A34E1E84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5457D44A-9E1A-45EC-ABC4-69E3F7F49997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5457D44A-9E1A-45EC-ABC4-69E3F7F49997}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5457D44A-9E1A-45EC-ABC4-69E3F7F49997}.Release|Any CPU.ActiveCfg = Release|Any CPU
