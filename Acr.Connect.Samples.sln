@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.WinForm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.WinForms.RefreshToken", "WinForms\Acr.Connect.Samples.WinForms.RefreshToken\Acr.Connect.Samples.WinForms.RefreshToken.csproj", "{08AF512C-7F32-498C-B131-9168F1DEDA6F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebForms", "WebForms", "{4C68EB81-FF92-4FF2-B6FC-78F8219D486B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.WebForms.RefreshToken", "WebForms\Acr.Connect.Samples.WebForms.RefreshToken\Acr.Connect.Samples.WebForms.RefreshToken.csproj", "{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,10 @@ Global
 		{08AF512C-7F32-498C-B131-9168F1DEDA6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08AF512C-7F32-498C-B131-9168F1DEDA6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08AF512C-7F32-498C-B131-9168F1DEDA6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5457D44A-9E1A-45EC-ABC4-69E3F7F49997} = {6AD4483D-59A4-44EF-B840-45547E4A8FA5}
 		{08AF512C-7F32-498C-B131-9168F1DEDA6F} = {6AD4483D-59A4-44EF-B840-45547E4A8FA5}
+		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
 	EndGlobalSection
 EndGlobal
