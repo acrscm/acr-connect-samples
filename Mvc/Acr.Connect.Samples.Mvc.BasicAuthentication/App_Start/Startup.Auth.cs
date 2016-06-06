@@ -1,10 +1,15 @@
 ﻿using System;
+using System.IdentityModel.Tokens;
+using System.Security.Cryptography.X509Certificates;
+using System.Web;
+using Acr.Connect.Owin.Security.Oidc;
+using Acr.Connect.Samples.Mvc.BasicAuthentication.Auth;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Owin;
 using Acr.Connect.Samples.Mvc.BasicAuthentication.Models;
+using Acr.Connect.Samples.Mvc.BasicAuthentication.Properties;
 
 namespace Acr.Connect.Samples.Mvc.BasicAuthentication
 {
@@ -14,27 +19,44 @@ namespace Acr.Connect.Samples.Mvc.BasicAuthentication
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
-            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
+            app.CreatePerOwinContext(DemoDbContext.Create);
+            app.CreatePerOwinContext<DemoUserManager>(DemoUserManager.Create);
+            app.CreatePerOwinContext<DemoSignInManager>(DemoSignInManager.Create);
 
-            // Enable the application to use a cookie to store information for the signed in user
-            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            // Configure the sign in cookie
+            ConfigureAcrConnect(app);
+            ConfigureCookieAuth(app);
+        }
+
+        private static void ConfigureCookieAuth(IAppBuilder app)
+        {
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
-                Provider = new CookieAuthenticationProvider
-                {
-                    // Enables the application to validate the security stamp when the user logs in.
-                    // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
-                        validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
-                }
-            });            
+                LoginPath = new PathString("/Home/Index"),
+                SlidingExpiration = true,
+                ExpireTimeSpan = TimeSpan.FromMinutes(2)
+            });
+        }
+
+        private static void ConfigureAcrConnect(IAppBuilder app)
+        {
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+
+            var certificate = HttpContext.Current.Server.MapPath("~/AcrConnect.cer");
+            var cert = new X509Certificate2(certificate);
+
+            var saOptions = new AcrConnectOidcAuthenticationOptions
+            {
+                IssuerName = Settings.Default.IdentityProviderName,
+                CallbackPath = new PathString(Settings.Default.CallbackPath),
+                ClientId = Settings.Default.ClientId,
+                ClientSecret = Settings.Default.ClientSecret,
+                RealmUrl = new Uri(Settings.Default.AuthenticationServiceUrl),
+                PostLogOffRedirectPath = new PathString("/Home/Index"),
+                IssuerSigningKey = new X509AsymmetricSecurityKey(cert)
+            };
+
+            app.UseAcrConnectOidcAuthentication(saOptions);
         }
     }
 }
