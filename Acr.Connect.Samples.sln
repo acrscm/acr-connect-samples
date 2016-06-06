@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebForms", "WebForms", "{4C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.WebForms.RefreshToken", "WebForms\Acr.Connect.Samples.WebForms.RefreshToken\Acr.Connect.Samples.WebForms.RefreshToken.csproj", "{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mvc", "Mvc", "{65848D05-CC55-48B3-920A-8808F64FC013}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.Mvc.BasicAuthentication", "Mvc\Acr.Connect.Samples.Mvc.BasicAuthentication\Acr.Connect.Samples.Mvc.BasicAuthentication.csproj", "{36AA061F-BFAC-42A6-AC30-456B95B2B3F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,10 @@ Global
 		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +47,6 @@ Global
 		{5457D44A-9E1A-45EC-ABC4-69E3F7F49997} = {6AD4483D-59A4-44EF-B840-45547E4A8FA5}
 		{08AF512C-7F32-498C-B131-9168F1DEDA6F} = {6AD4483D-59A4-44EF-B840-45547E4A8FA5}
 		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
+		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3} = {65848D05-CC55-48B3-920A-8808F64FC013}
 	EndGlobalSection
 EndGlobal
