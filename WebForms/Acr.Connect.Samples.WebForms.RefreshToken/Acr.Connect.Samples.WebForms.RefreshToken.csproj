@@ -38,12 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acr.Connect.Owin.Security.Oidc, Version=1.1.0.71, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.Connect.Owin.Security.Oidc.1.1.0.71\lib\net452\Acr.Connect.Owin.Security.Oidc.dll</HintPath>
+    <Reference Include="Acr.Connect.Owin.Security.Oidc, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.Connect.Owin.Security.Oidc.1.1.1.1\lib\net452\Acr.Connect.Owin.Security.Oidc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Acr.Connect.Security.Common, Version=1.1.0.71, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.Connect.Owin.Security.Oidc.1.1.0.71\lib\net452\Acr.Connect.Security.Common.dll</HintPath>
+    <Reference Include="Acr.Connect.Security.Common, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.Connect.Owin.Security.Oidc.1.1.1.1\lib\net452\Acr.Connect.Security.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">

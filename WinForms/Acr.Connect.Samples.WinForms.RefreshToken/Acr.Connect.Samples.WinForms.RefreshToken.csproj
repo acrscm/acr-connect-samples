@@ -33,12 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acr.Connect.Security.Common, Version=1.1.0.73, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.Connect.Security.Gui.1.1.0.73\lib\net452\Acr.Connect.Security.Common.dll</HintPath>
+    <Reference Include="Acr.Connect.Security.Common, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.Connect.Security.Gui.1.1.1.1\lib\net452\Acr.Connect.Security.Common.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Acr.Connect.Security.Gui, Version=1.1.0.73, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Acr.Connect.Security.Gui.1.1.0.73\lib\net452\Acr.Connect.Security.Gui.dll</HintPath>
+    <Reference Include="Acr.Connect.Security.Gui, Version=1.1.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Acr.Connect.Security.Gui.1.1.1.1\lib\net452\Acr.Connect.Security.Gui.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Protocol.Extensions, Version=1.0.2.33, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
