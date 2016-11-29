@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{6AD4483D-59A4-44EF-B840-45547E4A8FA5}"
 EndProject
@@ -18,6 +18,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.Mvc.BasicAuthentication", "Mvc\Acr.Connect.Samples.Mvc.BasicAuthentication\Acr.Connect.Samples.Mvc.BasicAuthentication.csproj", "{36AA061F-BFAC-42A6-AC30-456B95B2B3F3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.WebForms.BasicAuthentication", "WebForms\Acr.Connect.Samples.WebForms.BasicAuthentication\Acr.Connect.Samples.WebForms.BasicAuthentication.csproj", "{55278367-BE49-4D65-9554-7B19BEE38C4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Sample.WebForms.SimpleAuthentication", "WebForms\Acr.Connect.Sample.WebForms.SimpleAuthentication\Acr.Connect.Sample.WebForms.SimpleAuthentication.csproj", "{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{55278367-BE49-4D65-9554-7B19BEE38C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55278367-BE49-4D65-9554-7B19BEE38C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55278367-BE49-4D65-9554-7B19BEE38C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 		{A6FCE097-95EC-4785-A558-BFFFFA20BEAE} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
 		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3} = {65848D05-CC55-48B3-920A-8808F64FC013}
 		{55278367-BE49-4D65-9554-7B19BEE38C4E} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
+		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
 	EndGlobalSection
 EndGlobal
