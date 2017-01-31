@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IdentityModel.Tokens;
 using System.Security.Cryptography.X509Certificates;
 using System.Web;
@@ -28,18 +29,16 @@ namespace Acr.Connect.Samples.WebForms.BasicAuthentication
         {
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            var certificate = HttpContext.Current.Server.MapPath("~/AcrConnect.cer");
-            var cert = new X509Certificate2(certificate);
-
             var saOptions = new AcrConnectOidcAuthenticationOptions
             {
-                IssuerName = "https://acr-id-test.acr.org/SecureAuth17",
-                CallbackPath = new PathString("/account/accesstoken"),
-                ClientId = "c3b97253202a426390cccfac755dc80c",
-                ClientSecret = "a596fb52d41749b092cfcda57cf6197b",
-                RealmUrl = new Uri("https://acr-id-test.acr.org/acrid-userlogin/"),
+                IssuerName             = SettingsProvider.IssuerName,
+                CallbackPath           = new PathString("/account/accesstoken"),
+                ClientId               = SettingsProvider.ClientId,
+                ClientSecret           = SettingsProvider.ClientSecret,
+                RealmUrl               = SettingsProvider.AuthServiceBaseUrl,
                 PostLogOffRedirectPath = new PathString("/Default.aspx"),
-                IssuerSigningKey = new X509AsymmetricSecurityKey(cert)
+                IssuerSigningKey       = SettingsProvider.AcrConnectSigninKey,
+                
             };
 
             app.UseAcrConnectOidcAuthentication(saOptions);
