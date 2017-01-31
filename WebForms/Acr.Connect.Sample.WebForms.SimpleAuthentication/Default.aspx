@@ -9,6 +9,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
+        <asp:button runat="server" ID="LogoffButton" Text="Log off" OnClick="LogoffButton_OnClick"></asp:button>
         <asp:button runat="server" ID="LoginButton" Text="ACR ID" ToolTip="Log in using your ACR ID account." OnClick="LoginButton_OnClick"></asp:button>
         <asp:Label runat="server" ID="Label"></asp:Label>
     </div>

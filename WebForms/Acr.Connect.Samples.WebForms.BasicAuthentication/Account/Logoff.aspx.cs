@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Web;
 using System.Web.UI;
-using Acr.Connect.Security.Common;
+using Acr.Connect.Owin.Security.Oidc;
+using Microsoft.AspNet.Identity;
 
 namespace Acr.Connect.Samples.WebForms.BasicAuthentication.Account
 {
@@ -8,12 +10,10 @@ namespace Acr.Connect.Samples.WebForms.BasicAuthentication.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var baseUrl = new Uri(Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/");
-            using (var iodcOptions = new OidcOptions { AuthenticationServiceBaseUrl = SettingsProvider.AuthServiceBaseUrl })
-            {
-                var acrConnectLogoffUrl = iodcOptions.BuildSignOutUrl(baseUrl);
-                Response.Redirect(acrConnectLogoffUrl.AbsoluteUri);
-            }
+            Context.GetOwinContext().Authentication.SignOut(
+                DefaultAuthenticationTypes.ApplicationCookie, 
+                DefaultAuthenticationTypes.ExternalCookie,
+                AcrConnectOidcAuthenticationOptions.DefaultAuthenticationType);
         }
     }
 }

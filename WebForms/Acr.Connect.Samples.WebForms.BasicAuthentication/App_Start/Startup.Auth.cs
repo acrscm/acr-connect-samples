@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Configuration;
-using System.IdentityModel.Tokens;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
 using Acr.Connect.Owin.Security.Oidc;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
