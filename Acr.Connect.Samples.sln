@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{6AD4483D-59A4-44EF-B840-45547E4A8FA5}"
 EndProject
@@ -25,6 +25,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		WebEssentials-Settings.json = WebEssentials-Settings.json
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular", "Angular", "{4F7402F5-2892-4FEA-BB16-6D3F1C44D973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acr.Connect.Samples.Angular", "Angular\Acr.Connect.Samples.Angular\Acr.Connect.Samples.Angular.csproj", "{64275023-0E26-4580-AE7C-2A9A526C2545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +60,10 @@ Global
 		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64275023-0E26-4580-AE7C-2A9A526C2545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64275023-0E26-4580-AE7C-2A9A526C2545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64275023-0E26-4580-AE7C-2A9A526C2545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64275023-0E26-4580-AE7C-2A9A526C2545}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +75,9 @@ Global
 		{36AA061F-BFAC-42A6-AC30-456B95B2B3F3} = {65848D05-CC55-48B3-920A-8808F64FC013}
 		{55278367-BE49-4D65-9554-7B19BEE38C4E} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
 		{7BE0C5D7-651C-4D68-A486-7DA17A61F1D0} = {4C68EB81-FF92-4FF2-B6FC-78F8219D486B}
+		{64275023-0E26-4580-AE7C-2A9A526C2545} = {4F7402F5-2892-4FEA-BB16-6D3F1C44D973}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B26ADDB7-1F57-43B7-B1C4-EA82B2C42151}
 	EndGlobalSection
 EndGlobal
