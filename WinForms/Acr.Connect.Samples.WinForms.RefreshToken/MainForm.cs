@@ -39,7 +39,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
         {
             ClearTokenTextBoxes();
 
-            _acrConnectOidcLogOnControl.SignOut();
+            _acrConnectOidcLogOnControl.SignOut(string.Empty);
         }
 
         private void AcrConnectOidcLogonControl_TokenReceived(object sender, TokenReceivedEventArgs e)
