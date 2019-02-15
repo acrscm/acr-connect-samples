@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using Acr.Connect.Samples.WinForms.RefreshToken.Properties;
 using IdentityModel.OidcClient;
@@ -52,6 +53,9 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
             else
             {
                 RefreshToken.Text = result.RefreshToken;
+                AccessToken.Text = result.AccessToken;
+                IdToken.Text = result.IdentityToken;
+                UserClaims.Text = string.Join(Environment.NewLine, result.User.Claims.Select(c=>$"{c.Type}: {c.Value}").ToArray());
             }
         }
 
@@ -62,12 +66,27 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 
         private void ClearTokenTextBoxes()
         {
-            RefreshToken.Text = string.Empty;
+            RefreshToken.Text = AccessToken.Text = IdToken.Text = UserClaims.Text = string.Empty;
         }
 
         private void CopyToClipboardButton_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(RefreshToken.Text, TextDataFormat.Text);
+        }
+
+        private void CopyAccessTokenButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(AccessToken.Text, TextDataFormat.Text);
+        }
+
+        private void CopyIdTokenButton_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(IdToken.Text, TextDataFormat.Text);
+        }
+
+        private void ClearTokens_Click(object sender, EventArgs e)
+        {
+            ClearTokenTextBoxes();
         }
     }
 }
