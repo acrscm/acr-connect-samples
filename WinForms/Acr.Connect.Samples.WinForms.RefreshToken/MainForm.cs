@@ -59,8 +59,9 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
             }
         }
 
-        private void SignOutButton_Click(object sender, EventArgs e)
+        private async void SignOutButton_Click(object sender, EventArgs e)
         {
+            await _oidcClient.LogoutAsync();
             ClearTokenTextBoxes();
         }
 
