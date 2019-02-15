@@ -12,7 +12,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,7 +25,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Redirect URL]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44307/Connect")]
         public string RedirectUrl {
             get {
                 return ((string)(this["RedirectUrl"]));
@@ -34,7 +34,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Scope]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("openid email offline_access")]
         public string Scope {
             get {
                 return ((string)(this["Scope"]));
@@ -43,7 +43,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Client ID]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("49b85d67b7da48fba4267d0758347f45")]
         public string ClientId {
             get {
                 return ((string)(this["ClientId"]));
@@ -52,7 +52,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Client Secret]")]
+        [global::System.Configuration.DefaultSettingValueAttribute("c02f08fd051b434eb6113bbe060a4514")]
         public string ClientSecret {
             get {
                 return ((string)(this["ClientSecret"]));
@@ -61,10 +61,10 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("[Authentication Service URL]")]
-        public string AuthenticationServiceUrl {
+        [global::System.Configuration.DefaultSettingValueAttribute("https://acr-id-test.acr.org/ACRID-UserLogin")]
+        public string AuthorityUrl {
             get {
-                return ((string)(this["AuthenticationServiceUrl"]));
+                return ((string)(this["AuthorityUrl"]));
             }
         }
     }

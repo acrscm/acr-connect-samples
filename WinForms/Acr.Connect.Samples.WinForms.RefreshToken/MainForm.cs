@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Windows.Forms;
 using Acr.Connect.Samples.WinForms.RefreshToken.Properties;
-using Acr.Connect.Security.Common;
-using Acr.Connect.Security.Gui;
+using IdentityModel.OidcClient;
+using IdentityModel.OidcClient.Browser;
 
 namespace Acr.Connect.Samples.WinForms.RefreshToken
 {
     public partial class MainForm : Form
     {
+        private OidcClient _oidcClient;
+
         public MainForm()
         {
             InitializeComponent();
@@ -16,45 +18,50 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 
             ClientId.Text = settings.ClientId;
             ClientSecret.Text = settings.ClientSecret;
-            AuthServiceUrl.Text = settings.AuthenticationServiceUrl;
+            AuthServiceUrl.Text = settings.AuthorityUrl;
             RedirectUrl.Text = settings.RedirectUrl;
             Scope.Text = settings.Scope;
+
+
+            var options = new OidcClientOptions
+            {
+                Authority = settings.AuthorityUrl,
+                ClientId = settings.ClientId,
+                ClientSecret = settings.ClientSecret,
+                Scope = settings.Scope,
+                RedirectUri = settings.RedirectUrl,
+                Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+                Browser = new BrowserPopup()
+            };
+
+            options.Policy.Discovery.ValidateIssuerName = false;
+
+            _oidcClient = new OidcClient(options);
         }
 
-        private void SignInButton_Click(object sender, EventArgs e)
+        private async void SignInButton_Click(object sender, EventArgs e)
         {
             ClearTokenTextBoxes();
 
-            _acrConnectOidcLogOnControl.AuthenticationServiceBaseUrl = new Uri(AuthServiceUrl.Text);
-            _acrConnectOidcLogOnControl.ClientId = ClientId.Text;
-            _acrConnectOidcLogOnControl.ClientSecret = ClientSecret.Text.ToSecureString();
-            _acrConnectOidcLogOnControl.RedirectUrl = new Uri(RedirectUrl.Text);
-            _acrConnectOidcLogOnControl.RequestTokens = true;
-            _acrConnectOidcLogOnControl.Scope = Scope.Text;
+            var result = await _oidcClient.LoginAsync(new LoginRequest { BrowserDisplayMode = DisplayMode.Visible });
 
-            _acrConnectOidcLogOnControl.SignIn();
+            if (result.IsError)
+            {
+                MessageBox.Show(this, result.Error, "Login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                RefreshToken.Text = result.RefreshToken;
+            }
         }
 
         private void SignOutButton_Click(object sender, EventArgs e)
         {
             ClearTokenTextBoxes();
-
-            _acrConnectOidcLogOnControl.SignOut(string.Empty);
-        }
-
-        private void AcrConnectOidcLogonControl_TokenReceived(object sender, TokenReceivedEventArgs e)
-        {
-            RefreshToken.Text = e.OidcMessage.Token;
-        }
-
-        private void AcrConnectOidcLogonControl_AuthCodeReceived(object sender, AuthCodeReceivedEventArgs e)
-        {
-            AuthCode.Text = e.OidcMessage.Code;
         }
 
         private void ClearTokenTextBoxes()
         {
-            AuthCode.Text = string.Empty;
             RefreshToken.Text = string.Empty;
         }
 
