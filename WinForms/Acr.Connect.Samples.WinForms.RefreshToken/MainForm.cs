@@ -35,6 +35,8 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
                 Browser = new BrowserPopup()
             };
 
+            /// Issuer name validation is disabled at the discovety since IDP Name and Authority URL do not match in current configuration. 
+            /// However, IDP Name still has to be validated during token validation.
             options.Policy.Discovery.ValidateIssuerName = false;
 
             _oidcClient = new OidcClient(options);
