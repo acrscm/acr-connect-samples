@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Net.Http;
 using System.Windows.Forms;
 using Acr.Connect.Samples.WinForms.AccessToken.Properties;
-using Acr.Connect.Security.Common;
-using Thinktecture.IdentityModel.Client;
+using IdentityModel.Client;
 
 namespace Acr.Connect.Samples.WinForms.AccessToken
 {
     public partial class MainForm : Form
     {
+        private HttpClient _client = new HttpClient();
+
         public MainForm()
         {
             InitializeComponent();
@@ -15,20 +17,29 @@ namespace Acr.Connect.Samples.WinForms.AccessToken
             AuthServiceUrl.Text = Settings.Default.AuthenticationServiceUrl;
             ClientId.Text = Settings.Default.ClientId;
             ClientSecret.Text = Settings.Default.ClientSecret;
-
         }
 
         private async void GetAccessTokenButton_Click(object sender, EventArgs e)
         {
-            using (var oidcOptions = new OidcOptions())
+            var request = new RefreshTokenRequest
             {
-                oidcOptions.AuthenticationServiceBaseUrl = new Uri(AuthServiceUrl.Text, UriKind.Absolute);
-                var oauthClient = new OAuth2Client(oidcOptions.TokenEndpointUrl, ClientId.Text, ClientSecret.Text, OAuth2Client.ClientAuthenticationStyle.PostValues);
-                var tokenResponse = await oauthClient.RequestRefreshTokenAsync(RefreshToken.Text);
+                Address = AuthServiceUrl.Text,
+                ClientId = ClientId.Text,
+                ClientSecret = ClientSecret.Text,
+                RefreshToken = RefreshToken.Text
+            };
 
-                RefreshToken.Text = tokenResponse.RefreshToken;
-                AccessToken.Text = tokenResponse.AccessToken;
-            }
+            var response = await _client.RequestRefreshTokenAsync(request);
+
+            RefreshToken.Text = response.RefreshToken;
+            AccessToken.Text = response.AccessToken;
+        }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            _client.Dispose();
+
+            base.OnFormClosed(e);
         }
     }
 }
