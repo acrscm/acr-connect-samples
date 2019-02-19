@@ -46,6 +46,12 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
         {
             ClearTokenTextBoxes();
 
+            _oidcClient.Options.Authority = AuthServiceUrl.Text;
+            _oidcClient.Options.ClientId = ClientId.Text;
+            _oidcClient.Options.ClientSecret = ClientSecret.Text;
+            _oidcClient.Options.Scope = Scope.Text;
+            _oidcClient.Options.RedirectUri = RedirectUrl.Text;
+
             var result = await _oidcClient.LoginAsync(new LoginRequest { BrowserDisplayMode = DisplayMode.Visible });
 
             if (result.IsError)
