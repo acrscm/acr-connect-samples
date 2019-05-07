@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -9,6 +10,13 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 {
     internal class BrowserPopup : IBrowser
     {
+        private readonly ILogger _logger;
+
+        public BrowserPopup(ILogger logger)
+        {
+            _logger = logger;
+        }
+
         public async Task<BrowserResult> InvokeAsync(BrowserOptions options)
         {
             using (var form = new Form { Name = "WebAuthentication", Text = "Authenticating...", Width = 1024, Height = 768 })
@@ -32,15 +40,33 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 
                 browser.NavigateError += (o, e) =>
                 {
+                    Log("NavigateError", e.Url);
                     e.Cancel = true;
                     result.ResultType = BrowserResultType.HttpError;
                     result.Error = e.StatusCode.ToString();
                     signal.Release();
                 };
 
+                browser.Navigating += (o, e) =>
+                {
+                    Log("Navigating", e.Url);
+                };
+
+                browser.Navigated += (o, e) =>
+                {
+                    Log("Navigated", e.Url);
+                    if (!string.IsNullOrEmpty(options.EndUrl) && e.Url.OriginalString.StartsWith(options.EndUrl) && options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.Redirect)
+                    {
+                        result.ResultType = BrowserResultType.Success;
+                        result.Response = e.Url.OriginalString;
+                        signal.Release();
+                    }
+                };
+
                 browser.BeforeNavigate2 += (o, e) =>
                 {
-                    if (e.Url.StartsWith(options.EndUrl))
+                    Log("BeforeNavigate2", e.Url);
+                    if (!string.IsNullOrEmpty(options.EndUrl) && e.Url.StartsWith(options.EndUrl))
                     {
                         e.Cancel = true;
                         result.ResultType = BrowserResultType.Success;
@@ -62,6 +88,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
                 System.Threading.Timer timer = null;
 
                 form.Show();
+
                 browser.Navigate(options.StartUrl);
 
                 await signal.WaitAsync();
@@ -72,6 +99,16 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 
                 return result;
             }
+        }
+
+        private void Log(string eventName, Uri url)
+        {
+            Log(eventName, url.OriginalString);
+        }
+
+        private void Log(string eventName, string url)
+        {
+            _logger.Log(eventName, url);
         }
     }
 }

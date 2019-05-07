@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Acr.Connect.Samples.WinForms.RefreshToken.Properties;
@@ -7,7 +8,7 @@ using IdentityModel.OidcClient.Browser;
 
 namespace Acr.Connect.Samples.WinForms.RefreshToken
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, ILogger
     {
         private OidcClient _oidcClient;
 
@@ -31,13 +32,15 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
                 ClientSecret = settings.ClientSecret,
                 Scope = settings.Scope,
                 RedirectUri = settings.RedirectUrl,
-                Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
-                Browser = new BrowserPopup()
+                Flow = OidcClientOptions.AuthenticationFlow.Hybrid,
+                Browser = new BrowserPopup(this)
             };
 
             /// Issuer name validation is disabled at the discovety since IDP Name and Authority URL do not match in current configuration. 
             /// However, IDP Name still has to be validated during token validation.
             options.Policy.Discovery.ValidateIssuerName = false;
+
+            options.Policy.Discovery.AuthorityNameComparison = StringComparison.InvariantCultureIgnoreCase;
 
             _oidcClient = new OidcClient(options);
         }
@@ -51,6 +54,9 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
             _oidcClient.Options.ClientSecret = ClientSecret.Text;
             _oidcClient.Options.Scope = Scope.Text;
             _oidcClient.Options.RedirectUri = RedirectUrl.Text;
+            _oidcClient.Options.Policy.Discovery.ValidateEndpoints = false;
+            _oidcClient.Options.Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode;
+            _oidcClient.Options.ResponseMode = OidcClientOptions.AuthorizeResponseMode.Redirect;
 
             var result = await _oidcClient.LoginAsync(new LoginRequest { BrowserDisplayMode = DisplayMode.Visible });
 
@@ -69,7 +75,11 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 
         private async void SignOutButton_Click(object sender, EventArgs e)
         {
-            await _oidcClient.LogoutAsync();
+            LogoutRequest logoutRequest = new LogoutRequest
+            {
+                IdTokenHint = IdToken.Text, BrowserDisplayMode = DisplayMode.Visible
+            } ;
+            await _oidcClient.LogoutAsync(logoutRequest);
             ClearTokenTextBoxes();
         }
 
@@ -96,6 +106,15 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
         private void ClearTokens_Click(object sender, EventArgs e)
         {
             ClearTokenTextBoxes();
+        }
+
+        public void Log(string eventName, string message)
+        {
+            using (var log = new StreamWriter("Log.txt", true))
+            {
+                log.WriteLine($"{DateTime.Now}:{eventName} - {message}");
+                log.Flush();
+            }
         }
     }
 }
