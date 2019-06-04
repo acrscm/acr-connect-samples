@@ -33,9 +33,9 @@ namespace Acr.Connect.Samples.AspNetMvc
             {
                 SignInAsAuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 AuthenticationType = "acrid",
-                Authority = "https://acrsr.oktapreview.com",
-                ClientId = "0oa1hm4POxgJM6CPu0g4",
-                ClientSecret = "qweqweqweqweqweq",
+                Authority = "https://acr-external.okta.com/oauth2/default",
+                ClientId = "[Client ID]",
+                ClientSecret = "[Client Secret]",
                 ResponseType = "code",
                 RedirectUri = "http://localhost:62529/oidc-callback",
                 Scope = "openid email profile"
