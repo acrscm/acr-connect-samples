@@ -25,7 +25,7 @@ namespace Acr.Connect.Samples.AspNetMvc.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Logoff()
         {
-            AuthManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+            AuthManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie, "acrid");
             return RedirectToAction("Index", "Home");
         }
     }

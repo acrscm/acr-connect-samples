@@ -33,20 +33,38 @@ namespace Acr.Connect.Samples.AspNetMvc
             {
                 SignInAsAuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
                 AuthenticationType = "acrid",
-                Authority = "https://acr-external.okta.com/oauth2/default",
-                ClientId = "[Client ID]",
-                ClientSecret = "[Client Secret]",
+                Authority = AppSettings.Authority,
+                ClientId = AppSettings.ClientId,
+                ClientSecret = AppSettings.ClientSecret,
                 ResponseType = "code",
-                RedirectUri = "http://localhost:62529/oidc-callback",
-                Scope = "openid email profile"
+                RedirectUri = AppSettings.RedirectUrl,
+                Scope = "openid email profile",
+                PostLogoutRedirectUri = AppSettings.PostLogoutRedirectUri
             };
+
+            oidcOptions.TokenValidationParameters.SaveSigninToken = true;
+
             oidcOptions.Notifications = new OpenIdConnectAuthenticationNotifications
             {
                 MessageReceived = MessageReceived,
-                SecurityTokenValidated = SecurityTokenValidated
+                SecurityTokenValidated = SecurityTokenValidated,
+                RedirectToIdentityProvider = RedirectToIdentityProvider
             };
 
             app.UseOpenIdConnectAuthentication(oidcOptions);
+        }
+
+        private Task RedirectToIdentityProvider(RedirectToIdentityProviderNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> arg)
+        {
+            if(arg.ProtocolMessage.RequestType == OpenIdConnectRequestType.Logout)
+            {
+                var identiy = ((ClaimsIdentity)arg.OwinContext.Authentication.User.Identity);
+                var idToken = identiy.BootstrapContext as string;
+
+                arg.ProtocolMessage.IdTokenHint = idToken;
+            }
+
+            return Task.CompletedTask;
         }
 
         private async Task MessageReceived(MessageReceivedNotification<OpenIdConnectMessage, OpenIdConnectAuthenticationOptions> arg)
