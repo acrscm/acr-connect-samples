@@ -41,9 +41,19 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
                 browser.NavigateError += (o, e) =>
                 {
                     Log("NavigateError", e.Url);
-                    e.Cancel = true;
-                    result.ResultType = BrowserResultType.HttpError;
-                    result.Error = e.StatusCode.ToString();
+                    if (e.StatusCode == 302) return;
+
+                     e.Cancel = true;
+                    if (!string.IsNullOrEmpty(options.EndUrl) && e.Url.StartsWith(options.EndUrl) && options.ResponseMode == OidcClientOptions.AuthorizeResponseMode.Redirect)
+                    {
+                        result.ResultType = BrowserResultType.Success;
+                        result.Response = e.Url;
+                    }
+                    else
+                    {
+                        result.ResultType = BrowserResultType.HttpError;
+                        result.Error = e.StatusCode.ToString();
+                    }
                     signal.Release();
                 };
 

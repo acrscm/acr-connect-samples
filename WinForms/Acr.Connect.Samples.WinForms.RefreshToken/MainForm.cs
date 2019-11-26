@@ -19,21 +19,19 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
             var settings = Settings.Default;
 
             ClientId.Text = settings.ClientId;
-            ClientSecret.Text = settings.ClientSecret;
             AuthServiceUrl.Text = settings.AuthorityUrl;
             RedirectUrl.Text = settings.RedirectUrl;
             Scope.Text = settings.Scope;
-
 
             var options = new OidcClientOptions
             {
                 Authority = settings.AuthorityUrl,
                 ClientId = settings.ClientId,
-                ClientSecret = settings.ClientSecret,
                 Scope = settings.Scope,
                 RedirectUri = settings.RedirectUrl,
-                Flow = OidcClientOptions.AuthenticationFlow.Hybrid,
-                Browser = new BrowserPopup(this)
+                Flow = OidcClientOptions.AuthenticationFlow.AuthorizationCode,
+                Browser = new BrowserPopup(this),
+                LoadProfile = true,
             };
 
             /// Issuer name validation is disabled at the discovety since IDP Name and Authority URL do not match in current configuration. 
@@ -51,7 +49,6 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
 
             _oidcClient.Options.Authority = AuthServiceUrl.Text;
             _oidcClient.Options.ClientId = ClientId.Text;
-            _oidcClient.Options.ClientSecret = ClientSecret.Text;
             _oidcClient.Options.Scope = Scope.Text;
             _oidcClient.Options.RedirectUri = RedirectUrl.Text;
             _oidcClient.Options.Policy.Discovery.ValidateEndpoints = false;

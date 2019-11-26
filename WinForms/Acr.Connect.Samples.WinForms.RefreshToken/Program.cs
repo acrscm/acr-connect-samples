@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace Acr.Connect.Samples.WinForms.RefreshToken
@@ -12,6 +13,7 @@ namespace Acr.Connect.Samples.WinForms.RefreshToken
         [STAThread]
         private static void Main()
         {
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
